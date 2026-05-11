@@ -35,7 +35,11 @@ class ItemPedido {
 // Singleton de Pedido
 class Pedido {
   constructor() {
+    if (Pedido.instance) {
+      return Pedido.instance;
+    }
     this.itens = [];
+    Pedido.instance = this;
   }
 
   adicionarItem(item) {
@@ -100,7 +104,7 @@ class UIController {
       const produto = ProdutoFactory.criarProduto(produtoNome);
       const item = new ItemPedido(produto, qtd);
 
-      // Uso do pedido global
+      // Uso do Singleton
       pedidoAtual.adicionarItem(item);
 
       UIController.atualizarLista();
