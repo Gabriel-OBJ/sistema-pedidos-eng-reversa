@@ -8,6 +8,18 @@ class Produto {
   }
 }
 
+// Factory de Produto
+class ProdutoFactory {
+  static criarProduto(nome) {
+    switch (nome) {
+      case "pastel": return new Produto("Pastel", 5);
+      case "caldo": return new Produto("Caldo", 7);
+      case "refrigerante": return new Produto("Refrigerante", 4);
+      case "suco": return new Produto("Suco", 6);
+      default: throw new Error("Produto inválido");
+    }
+  }
+}
 // Classe ItemPedido
 class ItemPedido {
   constructor(produto, quantidade) {
@@ -84,16 +96,8 @@ class UIController {
     }
 
     try {
-      // Lógica direta sem Factory
-      let preco = 0;
-      let nomeFormatado = "";
-      if (produtoNome === "pastel") { preco = 5; nomeFormatado = "Pastel"; }
-      else if (produtoNome === "caldo") { preco = 7; nomeFormatado = "Caldo"; }
-      else if (produtoNome === "refrigerante") { preco = 4; nomeFormatado = "Refrigerante"; }
-      else if (produtoNome === "suco") { preco = 6; nomeFormatado = "Suco"; }
-      else { throw new Error("Produto inválido"); }
-      
-      const produto = new Produto(nomeFormatado, preco);
+      // Uso da Factory
+      const produto = ProdutoFactory.criarProduto(produtoNome);
       const item = new ItemPedido(produto, qtd);
 
       // Uso do pedido global
