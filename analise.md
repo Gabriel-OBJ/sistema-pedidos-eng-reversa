@@ -35,34 +35,7 @@
 
 ## Parte 4 – Modelagem
 **Diagrama de Classes (UML):**
-```mermaid
-classDiagram
-    class Produto {
-        +String nome
-        +Number preco
-    }
-
-    class ItemPedido {
-        +Produto produto
-        +Number quantidade
-        +Number subtotal()
-    }
-
-    class Pedido {
-        -List~ItemPedido~ itens
-        +adicionarItem(produto, quantidade)
-        +limparPedido()
-        +calcularTotal()
-        +calcularTotalFinal()
-    }
-
-    class ProdutoFactory {
-        +criarProduto(nome)
-    }
-
-    ItemPedido "1" *-- "1" Produto : contém
-    Pedido "1" *-- "*" ItemPedido : gerencia
-```
+diagrama.png
 
 ## Parte 5 – Análise de Problemas
 - **Coesão:** Muito baixa. Funções fazem múltiplas coisas. A função `adicionar()` pega dados da tela, descobre o preço do produto, calcula o subtotal e avisa a interface para atualizar.
