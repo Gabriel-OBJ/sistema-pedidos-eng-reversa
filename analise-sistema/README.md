@@ -1,8 +1,8 @@
 # Análise de Sistema Real - Tropykaly Pizzas e Lanches
 
 ## Identificação
-- **Aluno:** [Seu Nome]
-- **Disciplina:** Arquitetura e Design de Software / Engenharia Reversa
+- **Aluno:** Gabriel Soares Vieira
+- **Disciplina:** Programação Web I
 - **Atividade:** Atividade 2 - Engenharia Reversa de Sistema em Produção
 
 ## Descrição da Atividade
